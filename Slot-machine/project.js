@@ -6,7 +6,7 @@
 // 6. Give the user their winnings
 // 7. Play again
 
-const prompt = require("prompt-sync")();
+const prompt = require('prompt-sync')();
 
 const ROWS = 3;
 const COLS = 3;
@@ -15,23 +15,23 @@ const SYMBOLS_COUNT = {
   A: 2,
   B: 4,
   C: 6,
-  D: 8,
+  D: 8
 };
 
 const SYMBOL_VALUES = {
   A: 5,
   B: 4,
   C: 3,
-  D: 2,
+  D: 2
 };
 
 const deposit = () => {
   while (true) {
-    const depositAmount = prompt("Enter a deposit amount: ");
+    const depositAmount = prompt('Enter a deposit amount: ');
     const numberDepositAmount = parseFloat(depositAmount);
 
     if (isNaN(numberDepositAmount) || numberDepositAmount <= 0) {
-      console.log("Invalid deposit amount, try again.");
+      console.log('Invalid deposit amount, try again.');
     } else {
       return numberDepositAmount;
     }
@@ -40,11 +40,11 @@ const deposit = () => {
 
 const getNumberOfLines = () => {
   while (true) {
-    const lines = prompt("Enter the number of lines to bet on (1-3): ");
+    const lines = prompt('Enter the number of lines to bet on (1-3): ');
     const numberOfLines = parseFloat(lines);
 
     if (isNaN(numberOfLines) || numberOfLines <= 0 || numberOfLines > 3) {
-      console.log("Invalid number of lines, try again.");
+      console.log('Invalid number of lines, try again.');
     } else {
       return numberOfLines;
     }
@@ -53,11 +53,11 @@ const getNumberOfLines = () => {
 
 const getBet = (balance, lines) => {
   while (true) {
-    const bet = prompt("Enter the bet per line: ");
+    const bet = prompt('Enter the bet per line: ');
     const numberBet = parseFloat(bet);
 
     if (isNaN(numberBet) || numberBet <= 0 || numberBet > balance / lines) {
-      console.log("Invalid bet, try again.");
+      console.log('Invalid bet, try again.');
     } else {
       return numberBet;
     }
@@ -99,11 +99,11 @@ const transpose = (reels) => {
 
 const printRows = (rows) => {
   for (const row of rows) {
-    let rowString = "";
+    let rowString = '';
     for (const [i, symbol] of row.entries()) {
       rowString += symbol;
       if (i != row.length - 1) {
-        rowString += " | ";
+        rowString += ' | ';
       }
     }
     console.log(rowString);
@@ -133,7 +133,7 @@ const getWinnings = (rows, bet, lines) => {
 const game = () => {
   let balance = deposit();
   while (true) {
-    console.log("You have a balance of $" + balance);
+    console.log('You have a balance of $' + balance);
     const numberOfLines = getNumberOfLines();
     const bet = getBet(balance, numberOfLines);
     balance -= bet * numberOfLines;
@@ -142,16 +142,16 @@ const game = () => {
     printRows(rows);
     const winnings = getWinnings(rows, bet, numberOfLines);
     balance += winnings;
-    console.log("You won, $" + winnings.toString());
+    console.log('You won, $' + winnings.toString());
 
     if (balance <= 0) {
-      console.log("You ran out of money");
+      console.log('You ran out of money');
       break;
     }
 
-    const playAgain = prompt("Do you want to play again (y/n)");
+    const playAgain = prompt('Do you want to play again (y/n)');
 
-    if (playAgain != "y") break;
+    if (playAgain != 'y') break;
   }
 };
 
