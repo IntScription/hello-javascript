@@ -1,8 +1,8 @@
 let places = ['Italy', 'Monaco', 'Turkey'];
 function visit(place1, place2, place3) {
-	console.log('Visit ' + place1 + ' first');
-	console.log('Visit ' + place2 + ' second');
-	console.log('Lastly, visit ' + place3);
+  console.log('Visit ' + place1 + ' first');
+  console.log('Visit ' + place2 + ' second');
+  console.log('Lastly, visit ' + place3);
 }
 visit(...places); // visit(places[0], places[1], places[2]);
 
@@ -26,12 +26,12 @@ console.log(veggies);
 // conveting single string into an array
 const greeting = 'Hello';
 const arrayOfChars = [...greeting];
-console.log(arrayOfChars); //  ['H', 'e', 'l', 'l', 'o']
+console.log(arrayOfChars); // ['H', 'e', 'l', 'l', 'o']
 
 // copy an object into a completely separate object
 const car1 = {
-	speed: 200,
-	color: 'yellow',
+  speed: 200,
+  color: 'yellow'
 };
 const car2 = { ...car1 };
 
