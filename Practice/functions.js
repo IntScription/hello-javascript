@@ -1,28 +1,34 @@
-let j = 10;
+const j = 10;
 function cool() {
-	var i = 20;
-	console.log(i);
+  const i = 20;
+  console.log(i);
 }
 function sup() {
-	var k = 30;
-	console.log(k);
+  const k = 30;
+  console.log(k);
 }
 function tool() {
-	sup(cool(console.log(j)));
-	i = j + 30;
-	console.log(i);
+  console.log(j);
+  cool();
+  sup();
+
+  const i = j + 30;
+  console.log(i);
+  return i; // return if you need this value elsewhere
 }
 function seal() {
-	tool();
-	k = j + 40;
-	console.log(k);
+  const i = tool();
+  const k = j + 40;
+  console.log(k);
+  return { i, k };
 }
-seal();
+const { i, k } = seal();
+
 console.log(
-	'\n the value of i = ' +
-		i +
-		'\n the value of j = ' +
-		j +
-		'\n the value of k = ' +
-		k
+  '\n the value of i = ' +
+    i +
+    '\n the value of j = ' +
+    j +
+    '\n the value of k = ' +
+    k
 );
