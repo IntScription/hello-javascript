@@ -1,0 +1,13 @@
+/*
+Write a function that checks if a given string (case insensitive) is a palindrome.
+A palindrome is a word, number, phrase, or other sequence of symbols that reads the same backwards as forwards, such as madam or racecar.
+*/
+
+const palindrome = (x) => {
+  x = x.toLowerCase();
+  return x.split('').reverse().join('') === x;
+};
+
+console.log(palindrome('Mom'));
+console.log(palindrome('mom'));
+console.log(palindrome('Photo'));
