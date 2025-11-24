@@ -1,16 +1,15 @@
 try {
   console.log('hello');
-} catch (err) {
+} catch {
   console.log('goodbye');
 }
 try {
   Number(5).toPrecision(300);
-} catch (e) {
+} catch {
   console.log('There was an error');
 }
 try {
   throw new Error();
-  console.log('Hello');
-} catch (err) {
+} catch {
   console.log('Goodbye');
 }
